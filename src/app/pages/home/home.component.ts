@@ -22,8 +22,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  editBook() {
-    this.route.navigate(['book/12313']);
+  editBook(id: string) {
+    this.route.navigate([`book/${id}`]);
   }
 
   newBook() {

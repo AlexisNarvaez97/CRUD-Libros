@@ -33,7 +33,7 @@
       <td>{{ book.editorial }}</td>
       <td>{{ book.registerDate }}</td>
       <td>
-        <button type="button" class="btn btn-primary mr-3" (click)="editBook()">
+        <button type="button" class="btn btn-primary mr-3" (click)="editBook(book.id)">
           <i class="fas fa-edit"></i>
         </button>
         <button type="button" class="btn btn-danger" (click)="deleteBook(book.id)">
