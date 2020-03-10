@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../core/services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-authors',
@@ -10,25 +11,24 @@ export class AuthorsComponent implements OnInit {
 
   authors: [];
 
-  constructor(private apiS: ApiService) { }
+  constructor(private apiS: ApiService, private route: Router) { }
 
   ngOnInit(): void {
-    this.apiS.getAuthors().subscribe( resp => { 
+    this.apiS.getAuthors().subscribe( resp => {
       this.authors = resp;
       console.log(resp);
     });
   }
 
-
-  newBook() {
-
+  newAuthor() {
+    this.route.navigate(['new-author']);
   }
 
-  editBook() {
-
+  editAuthor(id: string) {
+    this.route.navigate([`author/${id}`]);
   }
 
-  deleteBook() {
-
+  deleteAuthor(id: number) {
+    console.log('ID', id);
   }
 }
