@@ -10,6 +10,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { TableComponent } from './shared/components/table/table.component';
 import { EditBookComponent } from './pages/edit-book/edit-book.component';
 import { NewBookComponent } from './pages/new-book/new-book.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NewBookComponent } from './pages/new-book/new-book.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GraphqlModule
+    GraphqlModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
