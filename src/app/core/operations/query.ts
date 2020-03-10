@@ -16,3 +16,16 @@ query {
   }
 }
 `;
+
+
+export const listAuthors = gql `
+query {
+  authors {
+    id
+    name
+    lastname
+    email
+    registerDate
+  }
+}
+`;

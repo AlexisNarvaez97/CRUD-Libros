@@ -1,1 +1,43 @@
-<p>authors works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <h1 class="mt-3">List of all registered Authors</h1>
+    </div>
+    <div class="row justify-content-center mt-2" (click)="newBook()">
+      <button type="button" class="btn btn-primary">
+        Add Author
+        <i class="fas fa-plus-circle"></i>
+      </button>
+    </div>
+  </div>
+  
+  
+  <table class="table table-bordered mt-3">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Lastname</th>
+        <th scope="col">Email</th>
+        <th scope="col">Register Date</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let author of authors">
+        <th scope="row"> {{ author.id }} </th>
+        <td>{{ author.name }}</td>
+        <td>{{ author.lastname }}</td>
+        <td>{{ author.email }}</td>
+        <td>{{ author.registerDate }}</td>
+        <td>
+          <button type="button" class="btn btn-primary mr-3" (click)="editBook(book.id)">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button type="button" class="btn btn-danger" (click)="deleteBook(book.id)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </td> 
+      </tr>
+    </tbody>
+  </table>
+  
