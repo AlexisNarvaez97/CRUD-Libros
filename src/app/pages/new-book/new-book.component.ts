@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { ApiService } from '../../core/services/api.service';
+import { author } from '../../core/operations/query';
 
 @Component({
   selector: 'app-new-book',
@@ -10,7 +12,11 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 })
 export class NewBookComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  authors;
+
+  constructor(private router: Router, private apiS: ApiService) { 
+    this.authors = [];
+  }
 
   postBook = new FormGroup({
     nameBook: new FormControl('', Validators.required),
@@ -21,11 +27,19 @@ export class NewBookComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.getAuthors();
   }
 
   goHome(form: any) {
     console.log(form);
     this.router.navigate(['/books']);
+  }
+
+  getAuthors() {
+    this.apiS.getAuthors().subscribe( data => {
+      console.log('Authors', data);
+      this.authors = data;
+    });
   }
 
 }
