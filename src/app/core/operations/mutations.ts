@@ -24,3 +24,12 @@ export const updateAuthorInput = gql`
     }
   }
 `;
+
+export const deleteA = gql `
+  mutation deleteAuthor($id: Int!) {
+    deleteAuthor(id: $id) {
+      status
+      message
+    }
+  }
+`;

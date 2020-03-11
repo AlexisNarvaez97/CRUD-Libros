@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { ApiService } from '../../core/services/api.service';
 import { Router } from '@angular/router';
 
@@ -29,6 +29,8 @@ export class AuthorsComponent implements OnInit {
   }
 
   deleteAuthor(id: number) {
-    console.log('ID', id);
+    this.apiS.deleteAuthor(id).subscribe( ({data}: any) => {
+      console.log(data.deleteAuthor);
+    });
   }
 }

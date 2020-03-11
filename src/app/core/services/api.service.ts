@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Apollo } from "apollo-angular";
 import { listBooks, listAuthors, author } from '../operations/query';
 import { map } from "rxjs/operators";
-import { registerA, updateAuthorInput } from '../operations/mutations';
+import { registerA, updateAuthorInput, deleteA } from '../operations/mutations';
 import { RegisterAuthor } from '../../shared/models/author.interface';
 
 @Injectable({
@@ -74,6 +74,17 @@ export class ApiService {
       }
     });
   }
+
+  deleteAuthor(id: number) {
+    return this.apollo
+    .mutate({
+      mutation: deleteA,
+      variables: {
+        id
+      }
+    });
+  }
+
 }
 
 
