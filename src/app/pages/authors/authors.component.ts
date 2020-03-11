@@ -11,6 +11,8 @@ export class AuthorsComponent implements OnInit {
 
   authors: [];
 
+  searchText = '';
+
   constructor(private apiS: ApiService, private route: Router) { }
 
   ngOnInit(): void {
@@ -40,6 +42,10 @@ export class AuthorsComponent implements OnInit {
       console.log(data.changeAuthors);
       this.authors = data.changeAuthors;
     });
+  }
+
+  changeValor(event) {
+    this.searchText = event;
   }
 
 

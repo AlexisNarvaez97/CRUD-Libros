@@ -10,11 +10,12 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { TableComponent } from './shared/components/table/table.component';
 import { EditBookComponent } from './pages/edit-book/edit-book.component';
 import { NewBookComponent } from './pages/new-book/new-book.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NewAuthorComponent } from './pages/new-author/new-author.component';
 import { EditAuthorComponent } from './pages/edit-author/edit-author.component';
 import { RegisterComponent } from './shared/components/register/register.component';
 import { LoginComponent } from './shared/components/login/login.component';
+import { SearchAuthorPipe } from './shared/search-author.pipe';
 
 @NgModule({
   declarations: [
@@ -28,13 +29,15 @@ import { LoginComponent } from './shared/components/login/login.component';
     NewAuthorComponent,
     EditAuthorComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    SearchAuthorPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     GraphqlModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
