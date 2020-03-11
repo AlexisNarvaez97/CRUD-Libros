@@ -10,10 +10,13 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  searchText = '';
 
   books: Book[];
 
-  constructor(private apiS: ApiService, private route: Router) { }
+  constructor(private apiS: ApiService, private route: Router) {
+    console.log(this.searchText);
+   }
 
   ngOnInit(): void {
     this.apiS.getBooks().subscribe( (resp: any) => {
@@ -45,6 +48,11 @@ export class HomeComponent implements OnInit {
       console.log(data);
       this.books = data.changeBooks;
     });
+  }
+
+  changeValor(event) {
+    console.log(event);
+    this.searchText = event;
   }
 
 }

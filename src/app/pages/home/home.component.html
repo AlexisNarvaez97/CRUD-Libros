@@ -11,6 +11,11 @@
       <i class="fas fa-plus-circle"></i>
     </button>
   </div>
+
+  <div class="row justify-content-center mt-3">
+    <input class="form-control" type="text" placeholder="Search for name book..." aria-label="..." [(ngModel)]="searchText" (ngModelChange)="changeValor($event)">
+  </div>
+
 </div>
 
 
@@ -28,7 +33,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let book of books">
+    <tr *ngFor="let book of books | search: searchText">
       <th scope="row"> {{ book.id }} </th>
       <td>{{ book.name }}</td>
       <td *ngFor="let author of book.author">{{ author.name }}</td>
