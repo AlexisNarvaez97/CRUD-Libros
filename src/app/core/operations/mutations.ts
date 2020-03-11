@@ -15,3 +15,12 @@ export const registerA = gql`
     }
   }
 `;
+
+export const updateAuthorInput = gql`
+  mutation updateAuth($updateAuthor: UpdateAuthInput, $id: Int!) {
+    updateAuthor(id: $id, updateAuthor: $updateAuthor) {
+      status
+      message
+    }
+  }
+`;

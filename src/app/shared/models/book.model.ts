@@ -4,6 +4,8 @@ export interface Book {
     name: string;
     editorial: string;
     registerDate: string;
+    year: string;
+    language: string;
     author: Autor;
 }
 
