@@ -33,6 +33,9 @@ export class HomeComponent implements OnInit {
 
   deleteBook(id: number) {
     console.log('Libro id', id);
+    this.apiS.deleteBook(id).subscribe( ({data}: any) => {
+      console.log(data);
+    });
   }
 
 }

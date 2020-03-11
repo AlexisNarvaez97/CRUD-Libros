@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Apollo } from "apollo-angular";
 import { listBooks, listAuthors, author, book } from '../operations/query';
 import { map } from "rxjs/operators";
-import { registerA, updateAuthorInput, deleteA, registerB, updateBookInput } from '../operations/mutations';
+import { registerA, updateAuthorInput, deleteA, registerB, updateBookInput, deleteB } from '../operations/mutations';
 import { RegisterAuthor } from '../../shared/models/author.interface';
 import { PostBook } from '../../shared/models/book.model';
 
@@ -117,6 +117,16 @@ export class ApiService {
     return this.apollo
     .mutate({
       mutation: deleteA,
+      variables: {
+        id
+      }
+    });
+  }
+
+  deleteBook(id: number) {
+    return this.apollo
+    .mutate({
+      mutation: deleteB,
       variables: {
         id
       }

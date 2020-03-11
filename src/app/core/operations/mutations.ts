@@ -60,3 +60,13 @@ export const updateBookInput = gql`
   }
 }
 `;
+
+
+export const deleteB = gql `
+  mutation deleteBook($id: Int!) {
+    deleteBook(id: $id) {
+      status
+      message
+    }
+  }
+`;
