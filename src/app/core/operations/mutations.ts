@@ -51,3 +51,12 @@ export const registerB = gql`
     }
   }
 `;
+
+export const updateBookInput = gql`
+  mutation updateBook($updateBook: UpdateInput, $id: Int!) {
+  updateBook(id: $id, updateBook: $updateBook) {
+    status
+    message
+  }
+}
+`;

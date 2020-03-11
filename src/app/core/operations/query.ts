@@ -42,3 +42,23 @@ export const author = gql`
     }
   }
 `;
+
+export const book = gql`
+  query book($id: Int!) {
+    book(id: $id) {
+      id
+      name
+      editorial
+      registerDate
+      year
+      language
+      author_id
+      author {
+        id
+        name
+        lastname
+        email
+      }
+    }
+  }
+`;
