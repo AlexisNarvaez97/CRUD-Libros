@@ -13,6 +13,8 @@ import { NewBookComponent } from './pages/new-book/new-book.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NewAuthorComponent } from './pages/new-author/new-author.component';
 import { EditAuthorComponent } from './pages/edit-author/edit-author.component';
+import { RegisterComponent } from './shared/components/register/register.component';
+import { LoginComponent } from './shared/components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,15 @@ import { EditAuthorComponent } from './pages/edit-author/edit-author.component';
     EditBookComponent,
     NewBookComponent,
     NewAuthorComponent,
-    EditAuthorComponent
+    EditAuthorComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     GraphqlModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

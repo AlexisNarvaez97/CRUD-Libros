@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { RegisterAuthor } from '../../shared/models/author.interface';
 import { ApiService } from '../../core/services/api.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { ApiService } from '../../core/services/api.service';
 })
 export class NewAuthorComponent implements OnInit {
 
-  constructor(private apiS: ApiService) { }
+  constructor(private apiS: ApiService, private router: Router) { }
 
   postAuthor = new FormGroup({
     nameBook: new FormControl('', Validators.required),
@@ -33,6 +34,7 @@ export class NewAuthorComponent implements OnInit {
     };
     console.log(newAuthor);
     this.apiS.registerAuthor(newAuthor).subscribe( (data: any) => {
+      this.router.navigate(['/authors']);
       console.log(data);
     }, (err) => {
       console.log(err);

@@ -5,6 +5,8 @@ import { EditBookComponent } from "./pages/edit-book/edit-book.component";
 import { NewBookComponent } from './pages/new-book/new-book.component';
 import { NewAuthorComponent } from './pages/new-author/new-author.component';
 import { EditAuthorComponent } from './pages/edit-author/edit-author.component';
+import { LoginComponent } from './shared/components/login/login.component';
+import { RegisterComponent } from './shared/components/register/register.component';
 
 const routes: Routes = [
   {
@@ -21,7 +23,15 @@ const routes: Routes = [
         loadChildren: () =>
           import("./pages/authors/authors.module").then(m => m.AuthorsModule)
       },
-      { path: "", redirectTo: "/books", pathMatch: "full" }
+      {
+        path: "login",
+        component: LoginComponent
+      },
+      {
+        path: "register",
+        component: RegisterComponent
+      },
+      { path: "", redirectTo: "/login", pathMatch: "full" }
     ]
   },
   {
@@ -39,7 +49,7 @@ const routes: Routes = [
   {
     path: "author/:id",
     component: EditAuthorComponent
-  }
+  },
 ];
 
 @NgModule({
