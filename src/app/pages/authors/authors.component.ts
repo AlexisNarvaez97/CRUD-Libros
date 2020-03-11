@@ -18,6 +18,7 @@ export class AuthorsComponent implements OnInit {
       this.authors = resp;
       console.log(resp);
     });
+    this.changeAuthors();
   }
 
   newAuthor() {
@@ -33,4 +34,13 @@ export class AuthorsComponent implements OnInit {
       console.log(data.deleteAuthor);
     });
   }
+
+  changeAuthors() {
+    this.apiS.changeAuthorsListener().subscribe( ({data}: any) => {
+      console.log(data.changeAuthors);
+      this.authors = data.changeAuthors;
+    });
+  }
+
+
 }

@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
       this.books = resp;
       console.log(resp);
     });
+    this.changeBooks();
   }
 
   editBook(id: string) {
@@ -35,6 +36,14 @@ export class HomeComponent implements OnInit {
     console.log('Libro id', id);
     this.apiS.deleteBook(id).subscribe( ({data}: any) => {
       console.log(data);
+    });
+  }
+
+  // Suscribirse al cambio de Books
+  changeBooks() {
+    this.apiS.changeBooksListener().subscribe(({data}: any) => {
+      console.log(data);
+      this.books = data.changeBooks;
     });
   }
 

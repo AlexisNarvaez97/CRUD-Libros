@@ -5,6 +5,7 @@ import { map } from "rxjs/operators";
 import { registerA, updateAuthorInput, deleteA, registerB, updateBookInput, deleteB } from '../operations/mutations';
 import { RegisterAuthor } from '../../shared/models/author.interface';
 import { PostBook } from '../../shared/models/book.model';
+import { changeBooks, changeAuthors } from '../operations/subscription';
 
 @Injectable({
   providedIn: "root"
@@ -130,6 +131,18 @@ export class ApiService {
       variables: {
         id
       }
+    });
+  }
+
+  changeBooksListener() {
+    return this.apollo.subscribe({
+      query: changeBooks
+    });
+  }
+
+  changeAuthorsListener() {
+    return this.apollo.subscribe({
+      query: changeAuthors
     });
   }
 
