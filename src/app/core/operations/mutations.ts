@@ -33,3 +33,21 @@ export const deleteA = gql `
     }
   }
 `;
+
+export const registerB = gql`
+  mutation addBook($book: BookInput) {
+    registerBook(book: $book) {
+      status
+      message
+      book {
+        id
+        name
+        editorial
+        registerDate
+        author_id
+        year
+        language
+      }
+    }
+  }
+`;

@@ -9,6 +9,14 @@ export interface Book {
     author: Autor;
 }
 
+export interface PostBook {
+    name: string;
+    editorial: string;
+    author_id: string;
+    year: string;
+    language: string;
+}
+
 export interface Autor {
     id: number;
     name: string;

@@ -3,7 +3,7 @@
         <h1>Add New Book Please</h1>
     </div>
     <div class="row justify-content-center mt-3">
-      <form [formGroup]="postBook" (ngSubmit)="goHome(postBook)">
+      <form [formGroup]="postBook" (ngSubmit)="newBook(postBook.value)">
         <div class="form-group">
           <label for="exampleInputEmail1">Name</label>
           <input
