@@ -4,7 +4,17 @@ export interface Book {
     name: string;
     editorial: string;
     registerDate: string;
+    year: string;
+    language: string;
     author: Autor;
+}
+
+export interface PostBook {
+    name: string;
+    editorial: string;
+    author_id: string;
+    year: string;
+    language: string;
 }
 
 export interface Autor {
