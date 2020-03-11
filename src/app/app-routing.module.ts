@@ -31,7 +31,7 @@ const routes: Routes = [
         path: "register",
         component: RegisterComponent
       },
-      { path: "", redirectTo: "/login", pathMatch: "full" }
+      { path: "", redirectTo: "/books", pathMatch: "full" }
     ]
   },
   {
